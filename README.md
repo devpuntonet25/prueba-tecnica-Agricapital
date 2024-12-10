@@ -3,7 +3,7 @@
 # Breve explicación sobre el desarrollo del primer y segundo punto práctico
 Este proyecto se construyó con springboot 3, utiliza mysql para persistir la información y también la implementación hibernate de JPA para gestionar las operaciones CRUD mediante este ORM.
 El proyecto expone esencialmente 2 endpoints, el primero es para guardar un usuario en la base de datos luego de hacerle una validación al correo, y el segundo endpoint es para hacer paginación,
-por tanto, pasando solo unos párametros como size, page, campo por el cual ordenar y tipo de ordenamiento retorna solo la cantidad limitada de regsitros y de acuerdo a lo especificado al hacer la petición.
+por tanto, pasando solo unos párametros como size, page, campo por el cual ordenar y tipo de ordenamiento retorna solo la cantidad limitada de registros y de acuerdo a lo especificado al hacer la petición.
 
 # Sobre el tercer punto
 En la carpeta raíz de este proyecto se encuentran dos imagenes que son el MER (modelo entidad relación) y MR (Modelo relacional) de la base de datos diseñada y creada para dar respuesta a este punto. También
