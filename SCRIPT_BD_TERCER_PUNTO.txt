@@ -1,0 +1,52 @@
+CREATE DATABASE clientes;
+
+CREATE TABLE cliente
+(
+documento varchar(12) PRIMARY KEY,
+nombre VARCHAR(255) NOT NULL,
+celular VARCHAR(255) NOT NULL,
+email VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE compra
+(
+id INT PRIMARY KEY AUTO_INCREMENT,
+documento_cliente varchar(12) NOT NULL,
+total_compra DECIMAL(10, 3) NOT NULL
+);
+
+INSERT INTO cliente(documento, nombre, celular, email)
+VALUES ('1152694945', 'Manuela Ramirez', '3143245794', 'manuramirez@gmail.com'),
+('1152694784', 'Martina Mendoza', '3003245794', 'mendoza5794@gmail.com'),
+('1152245324', 'Samuel Castillo', '3003243491', 'castillo3491@gmail.com'),
+('1152125444', 'Sara Rojas', '3003642781', 'sararojas@gmail.com'),
+('1152125794', 'Carlos Giraldo', '3123642781', 'carlosgiraldo@gmail.com');
+
+INSERT INTO compra(documento_cliente, total_compra)
+VALUES ('1152694945', 50000),
+('1152694945', 80000),
+('1152694784', 120000),
+('1152694784', 200000),
+('1152245324', 500000),
+('1152245324', 950000),
+('1152245324', 50000),
+('1152125444', 200000),
+('1152125444', 70000),
+('1152125794', 1500000),
+('1152125794', 2500000);
+
+SELECT 
+c.documento,
+c.nombre, 
+c.celular,
+c.email,
+com.id,
+SUM(com.total_compra) AS total_compras
+FROM cliente as c
+JOIN compra as com
+ON c.documento = com.documento_cliente
+GROUP BY 
+c.documento, c.nombre
+ORDER BY 
+total_compras DESC
+LIMIT 5;
